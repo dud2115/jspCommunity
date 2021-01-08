@@ -35,6 +35,6 @@ public class HomeServlet extends HttpServlet {
 		for (int i = 1; i <= count; i++) {
 			response.getWriter().append(hello + "<br>");
 		}
-
+		//[save]
 	}
 }
