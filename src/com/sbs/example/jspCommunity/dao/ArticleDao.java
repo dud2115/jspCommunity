@@ -3,7 +3,6 @@ package com.sbs.example.jspCommunity.dao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.sbs.example.jspCommunity.dto.Article;
 import com.sbs.example.mysqlutil.MysqlUtil;
 import com.sbs.example.mysqlutil.SecSql;
