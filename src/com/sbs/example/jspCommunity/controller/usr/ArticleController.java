@@ -1,4 +1,4 @@
-package com.sbs.example.jspCommunity.controller;
+package com.sbs.example.jspCommunity.controller.usr;
 
 import java.util.List;
 
@@ -25,4 +25,21 @@ public class ArticleController {
 
 		return "usr/article/list";
 	}
+
+	public String showDetail(HttpServletRequest req, HttpServletResponse resp) {
+		int id = Integer.parseInt(req.getParameter("id"));
+		
+		Article article = articleService.getForPrintArtcielById(id);
+		
+		if (article == null ) { 
+			req.setAttribute("alertMsg", id + "번 게시물은 존재하지 않습니다." );
+			return "common/redirect";
+		}
+		
+		req.setAttribute("article", article);
+		
+		return "usr/article/detail";
+	}
+
+
 }
