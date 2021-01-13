@@ -35,7 +35,7 @@ Article article = (Article) request.getAttribute("article");
 	
 	
 	<div>
-	<a href="list?boardId=,<%=article.boardId %>">리스트로 이동</a>
+	<a href="list?boardId=<%=article.boardId %>">리스트로 이동</a>
 	</div>
 </body>
 </html>

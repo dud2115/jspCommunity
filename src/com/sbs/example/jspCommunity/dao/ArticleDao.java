@@ -47,7 +47,7 @@ public class ArticleDao {
 		sql.append("ON A.memberId = M.id");
 		sql.append("INNER JOIN `board` AS B");
 		sql.append("ON A.boardId = B.id");
-		sql.append("WHERE A.boardId = ?", id);
+		sql.append("WHERE A.id = ?", id);
 		
 
 		Map<String, Object> map = MysqlUtil.selectRow(sql);
