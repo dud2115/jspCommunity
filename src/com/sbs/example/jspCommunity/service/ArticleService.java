@@ -24,8 +24,8 @@ public class ArticleService {
 		return articleDao.getForPrintArticleById(id);
 	}
 
-	public Board getBoardById(int boardId) {
-		return articleDao.getBoardById(boardId);
+	public Board getBoardById(int id) {
+		return articleDao.getBoardById(id);
 	}
 
 	public int write(Map<String, Object> writeArgs) {

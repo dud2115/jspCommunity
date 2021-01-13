@@ -22,6 +22,9 @@ public class ArticleController {
 	public String showList(HttpServletRequest req, HttpServletResponse resp) {
 		int boardId = Integer.parseInt(req.getParameter("boardId"));
 
+		Board board = articleService.getBoardById(boardId);
+		req.setAttribute("board", board);
+
 		List<Article> articles = articleService.getForPrintArticlesByBoardId(boardId);
 
 		req.setAttribute("articles", articles);
@@ -31,26 +34,25 @@ public class ArticleController {
 
 	public String showDetail(HttpServletRequest req, HttpServletResponse resp) {
 		int id = Integer.parseInt(req.getParameter("id"));
-		
+
 		Article article = articleService.getForPrintArtcielById(id);
-		
-		if (article == null ) { 
-			req.setAttribute("alertMsg", id + "번 게시물은 존재하지 않습니다." );
+
+		if (article == null) {
+			req.setAttribute("alertMsg", id + "번 게시물은 존재하지 않습니다.");
 			req.setAttribute("historyBack", true);
 			return "common/redirect";
 		}
-		
+
 		req.setAttribute("article", article);
-		
+
 		return "usr/article/detail";
 	}
 
 	public String showWrite(HttpServletRequest req, HttpServletResponse resp) {
 		int boardId = Integer.parseInt(req.getParameter("boardId"));
-		Board board = articleService.getBoardById(boardId); 
-		
-		req.setAttribute("Board", board);
-		
+
+		Board board = articleService.getBoardById(boardId);
+		req.setAttribute("board", board);
 		return "usr/article/write";
 	}
 
@@ -59,20 +61,19 @@ public class ArticleController {
 		int boardId = Integer.parseInt(req.getParameter("boardId"));
 		String title = req.getParameter("title");
 		String body = req.getParameter("body");
-		
-		Map <String, Object> writeArgs = new HashMap<>();
+
+		Map<String, Object> writeArgs = new HashMap<>();
 		writeArgs.put("memberId", memberId);
 		writeArgs.put("boardId", boardId);
 		writeArgs.put("title", title);
 		writeArgs.put("body", body);
-		
+
 		int newArticleId = articleService.write(writeArgs);
-		
-		req.setAttribute("alertMsg",newArticleId + "번 게시물이 생성되었습니다.");
+
+		req.setAttribute("alertMsg", newArticleId + "번 게시물이 생성되었습니다.");
 		req.setAttribute("replaceUrl", String.format("detail?id=%d", newArticleId));
-		
+
 		return "common/redirect";
 	}
-
 
 }

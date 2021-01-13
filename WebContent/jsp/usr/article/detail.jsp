@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map"%>
-
 <%@ page import="com.sbs.example.jspCommunity.dto.Article"%>
 <%
 Article article = (Article) request.getAttribute("article");
@@ -31,10 +30,11 @@ Article article = (Article) request.getAttribute("article");
 		제목 :
 		<%=article.title%>
 		<hr />
-		내용 :
-		<%=article.body%>
-		
 	</div>
-
+	<hr />
+	
+	<div>
+	<a href="list?boardId=,<%=article.boardId %>">리스트로 이동</a>
+	</div>
 </body>
 </html>

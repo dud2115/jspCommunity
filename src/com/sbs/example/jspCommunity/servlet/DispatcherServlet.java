@@ -47,7 +47,7 @@ public class DispatcherServlet extends HttpServlet {
 
 			if (actionMethodName.equals("list")) {
 				jspPath = articleController.showList(req, resp);
-			} else if (controllerName.equals("detail")) {
+			} else if (actionMethodName.equals("detail")) {
 				jspPath = articleController.showDetail(req,resp);
 			} else if (actionMethodName.equals("write")) {
 				jspPath = articleController.showWrite(req,resp);
@@ -60,5 +60,10 @@ public class DispatcherServlet extends HttpServlet {
 
 		RequestDispatcher rd = req.getRequestDispatcher("/jsp/" + jspPath + ".jsp");
 		rd.forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+				doGet(req, resp);
 	}
 }
