@@ -20,7 +20,7 @@ public class ArticleService {
 		return articleDao.getForPrintArticlesByBoardId(boardId);
 	}
 
-	public Article getForPrintArtcielById(int id) {
+	public Article getForPrintArticleById(int id) {
 		return articleDao.getForPrintArticleById(id);
 	}
 
@@ -28,7 +28,7 @@ public class ArticleService {
 		return articleDao.getBoardById(id);
 	}
 
-	public int write(Map<String, Object> writeArgs) {
-		return articleDao.write(writeArgs);
+	public int write(Map<String, Object> args) {
+		return articleDao.write(args);
 	}
 }

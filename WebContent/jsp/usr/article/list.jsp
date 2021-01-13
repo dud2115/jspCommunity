@@ -5,7 +5,7 @@
 <%@ page import="com.sbs.example.jspCommunity.dto.Article"%>
 <%@ page import="com.sbs.example.jspCommunity.dto.Board"%>
 <%
-Board board = (Board) request.getAttribute("Board");
+Board board = (Board) request.getAttribute("board");
 List<Article> articles = (List<Article>) request.getAttribute("articles");
 %>
 <!doctype html>

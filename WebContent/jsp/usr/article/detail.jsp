@@ -9,10 +9,10 @@ Article article = (Article) request.getAttribute("article");
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>게시물 상세 페이지</title>
+<title>게시물 상세페이지</title>
 </head>
 <body>
-	<h1>게시물 상세 페이지</h1>
+	<h1>게시물 상세페이지</h1>
 
 	<div>
 		번호 :
@@ -29,9 +29,10 @@ Article article = (Article) request.getAttribute("article");
 		<br />
 		제목 :
 		<%=article.title%>
-		<hr />
 	</div>
+	
 	<hr />
+	
 	
 	<div>
 	<a href="list?boardId=,<%=article.boardId %>">리스트로 이동</a>
